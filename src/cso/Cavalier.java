@@ -18,14 +18,14 @@ public class Cavalier {
 		
 		  if (tailleCheval== 1.60) {
 			  
-		    if (ramdon() > 0.03) {
+		    if (Math.random() > 0.03) {
 		    	// action  sur le saut obstacle 
 		    }
 		    else {
 		    	
 		    }
 		  }else if (tailleCheval==1.65) {
-			  if (ramdon() > 0.002) {
+			  if (Math.random() > 0.002) {
 			    	// action sur le saut obstacle
 			    }
 			  else {
@@ -33,7 +33,7 @@ public class Cavalier {
 			  }
 		  }
 		  else {
-			  if (ramdon() > 0.001) {
+			  if (Math.random() > 0.001) {
 			    	// action sur le saut obstacle
 			    }else
 			    {
@@ -48,10 +48,11 @@ public class Cavalier {
 	
 	
 	
-	public getNom(){
+	public String getNom(){
 		// methode retournant le nom
+		return nom ;
 	}
-	public bouger() {
+	public void bouger() {
 		// methode faisant bouger le cavalier sur le parcours utilisant random pour savoir de combien ils avan��ent 
 		// ou si ils chutent etc ...
 	}
