@@ -1,3 +1,4 @@
+package cso ;
 
 public class Cavalier {
 	String nom;
@@ -10,7 +11,7 @@ public class Cavalier {
 		this.x=x;
 		this.y=x;
 		this.tailleCheval=taille;
-		i++; // compteur permettant de connaitre le nombre de cheval présent 
+		i++; // compteur permettant de connaitre le nombre de cheval pr��sent 
 	}
 	
 	public void Saut(){
@@ -51,7 +52,7 @@ public class Cavalier {
 		// methode retournant le nom
 	}
 	public bouger() {
-		// methode faisant bouger le cavalier sur le parcours utilisant random pour savoir de combien ils avançent 
+		// methode faisant bouger le cavalier sur le parcours utilisant random pour savoir de combien ils avan��ent 
 		// ou si ils chutent etc ...
 	}
 	
