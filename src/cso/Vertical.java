@@ -77,8 +77,8 @@ public class Vertical extends Obstacle implements ElemManege {
 	/**
 	 * @param orientation the orientation to set
 	 */
-	public void setOrientation(ArrayList<Point> orientation) {
-		this.orientation = orientation;
+	public void setOrientation(Point p) {
+		this.orientation = ;
 	}
 
 }

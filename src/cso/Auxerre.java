@@ -71,10 +71,10 @@ public class Auxerre extends Obstacle implements ElemManege {
 	}
 
 	/**
-	 * @param orientation the orientation to set
+	 * @param p le point d'où venir pour arriver droit et au milieu
 	 */
-	public void setOrientation(ArrayList<Point> orientation) {
-		this.orientation = orientation;
+	public void setOrientation(Point p) {
+		this.orientation = ;
 	}
 
 }

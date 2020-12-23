@@ -18,7 +18,7 @@ public interface ElemManege {
 	/**
 	 * 
 	 */
-	public void setOrientation(ArrayList<Point> orientation);
+	public void setOrientation(Point p);
 
 	public double getHauteurMax();
 

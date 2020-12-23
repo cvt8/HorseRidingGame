@@ -30,7 +30,7 @@ public class Ligne implements ElemManege {
 
 // TODO faire une construction de la ligne 
 	// en alternant un obstacle et un
-	// plat dont les caractéristqiues
+	// plat dont les caractéristiques
 	// doivent être choisies par le client
 
 	@Override
@@ -38,7 +38,6 @@ public class Ligne implements ElemManege {
 		for (int i = 0; i < tab.size(); i += 2) {
 			tab.get(i).seDetruire();
 		}
-
 	}
 
 	/**
@@ -101,8 +100,8 @@ public class Ligne implements ElemManege {
 	 * @param orientation the orientation to set
 	 */
 	@Override
-	public void setOrientation(ArrayList<Point> orientation) {
-		this.orientation = orientation;
+	public void setOrientation(Point p) {
+		;
 	}
 
 }
