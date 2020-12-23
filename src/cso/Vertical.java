@@ -3,6 +3,8 @@
  */
 package cso;
 
+import java.util.ArrayList;
+
 /**
  * @author constantin
  *
@@ -10,14 +12,13 @@ package cso;
 public class Vertical extends Obstacle implements ElemManege {
 
 	private int id;
-	/**
-	 * 
-	 */
 	private int nbBarres;
+	private ArrayList<Point> orientation;
 
 	/**
-	 * @param hauteur : la heuteur de l'obstacle
-	 * @param largeur : la largeur de l'obstacle
+	 * @param hauteur
+	 * @param largeur
+	 * @param nbBarres
 	 */
 	public Vertical(double hauteur, double largeur, int nbBarres) {
 		super(hauteur, largeur);
@@ -25,6 +26,7 @@ public class Vertical extends Obstacle implements ElemManege {
 		ElemManege.number++;
 		id = number;
 		profondeur = 0;
+		orientation = new ArrayList<Point>();
 	}
 
 	@Override
@@ -48,6 +50,14 @@ public class Vertical extends Obstacle implements ElemManege {
 		return nbBarres;
 	}
 
+	/**
+	 * @return the orientation
+	 */
+	@Override
+	public ArrayList<Point> getOrientation() {
+		return orientation;
+	}
+
 	@Override
 	public double getProfondeur() {
 
@@ -62,6 +72,13 @@ public class Vertical extends Obstacle implements ElemManege {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	/**
+	 * @param orientation the orientation to set
+	 */
+	public void setOrientation(ArrayList<Point> orientation) {
+		this.orientation = orientation;
 	}
 
 }

@@ -3,6 +3,8 @@
  */
 package cso;
 
+import java.util.ArrayList;
+
 /**
  * @author constantin
  *
@@ -10,6 +12,7 @@ package cso;
 public class Auxerre extends Obstacle implements ElemManege {
 
 	private double hauteurAppel;
+	private ArrayList<Point> orientation;
 
 	/**
 	 * @param hauteur
@@ -23,13 +26,14 @@ public class Auxerre extends Obstacle implements ElemManege {
 		this.hauteurAppel = hauteurAppel;
 		ElemManege.number++;
 		id = number;
+		orientation = new ArrayList<Point>();
 	}
 
-	@Override
-	public void seDetruire() {
-		super.seDetruire();
-		hauteurAppel = 0;
-
+	/**
+	 * @return the hauteurAppel
+	 */
+	public double getHauteurAppel() {
+		return hauteurAppel;
 	}
 
 	@Override
@@ -38,8 +42,21 @@ public class Auxerre extends Obstacle implements ElemManege {
 	}
 
 	@Override
+	public int getId() {
+		return id;
+	}
+
+	@Override
 	public double getLargeurMin() {
 		return largeur;
+	}
+
+	/**
+	 * @return the orientation
+	 */
+	@Override
+	public ArrayList<Point> getOrientation() {
+		return orientation;
 	}
 
 	@Override
@@ -48,15 +65,16 @@ public class Auxerre extends Obstacle implements ElemManege {
 	}
 
 	@Override
-	public int getId() {
-		return id;
+	public void seDetruire() {
+		super.seDetruire();
+		hauteurAppel = 0;
 	}
 
 	/**
-	 * @return the hauteurAppel
+	 * @param orientation the orientation to set
 	 */
-	public double getHauteurAppel() {
-		return hauteurAppel;
+	public void setOrientation(ArrayList<Point> orientation) {
+		this.orientation = orientation;
 	}
 
 }

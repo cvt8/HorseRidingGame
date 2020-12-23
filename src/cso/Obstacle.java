@@ -11,9 +11,7 @@ public abstract class Obstacle {
 
 	protected double hauteur;
 	protected int id;
-
 	protected double largeur;
-
 	protected double profondeur;
 
 	public Obstacle() {
