@@ -8,7 +8,7 @@ package cso;
  *
  */
 
-class Manege {
+public class Manege {
 	public final int LARGEUR = 3;
 	public final int LONGUEUR = 9;
 	private ElemManege[][] manege;
@@ -24,7 +24,7 @@ class Manege {
 	 * @param abord
 	 * Monte un element du manege a l'emplacement i, j sur le tableau.
 	 */
-	public void monter(ElemManege elem, Point p, Point abord) {
+	void monter(ElemManege elem, Point p, Point abord) {
 		manege[p.getX()][p.getY()] = elem ;
 		elem.setLocalisation(p);
 		elem.setOrientation(abord);
