@@ -9,7 +9,6 @@ package cso;
  */
 public class Passage {
 	private Cavalier cav;
-	private Manege man;
 	private Parcours par;
 	private boolean abandon;
 	private boolean started;
@@ -28,10 +27,9 @@ public class Passage {
 	 * @param man
 	 * @param par
 	 */
-	public Passage(Cavalier cav, Manege man, Parcours par) {
+	public Passage(Cavalier cav, Parcours par) {
 		super();
 		this.cav = cav;
-		this.man = man;
 		this.par = par;
 		abandon = false;
 		started = false;

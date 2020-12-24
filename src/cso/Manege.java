@@ -7,24 +7,37 @@ package cso;
  * @author constantin
  *
  */
-/**
- * @author constantin
- *
- */
-public class Manege {
+
+class Manege {
 	public final int LARGEUR = 3;
 	public final int LONGUEUR = 9;
 	private ElemManege[][] manege;
 
+
 	public Manege() {
-		manege = new ElemManege[9][3];
+		manege = new ElemManege[3][9];
 	}
 
 	/**
-	 * Monte un élement du manège à l'emplacement i, j sur le tableau.
+	 * @param elem
+	 * @param p
+	 * @param abord
+	 * Monte un element du manege a l'emplacement i, j sur le tableau.
 	 */
-	public void monter(ElemManege e, int i, int j) {
-		manege[i][j] = e ;
-		\\TODO mettre de la gestion d erreur dans ce programme en cas de dépassemnt pour i et j
+	public void monter(ElemManege elem, Point p, Point abord) {
+		manege[p.getX()][p.getY()] = elem ;
+		elem.setLocalisation(p);
+		elem.setOrientation(abord);
+	}
+
+	/**
+	 * @return the manege
+	 */
+	public ElemManege[][] getManege() {
+		return manege;
+	}
+	
+	public ElemManege getElem(Point p) {
+		return manege[p.getX()][p.getY()] ;
 	}
 }

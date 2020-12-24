@@ -11,10 +11,19 @@ import java.util.ArrayList;
  */
 public class Ligne implements ElemManege {
 
-	private int nbObstacles;
-	private ArrayList<Obstacle> tab;
+	private static int number = 1000 ;
+	/**
+	 * @return the number
+	 */
+	public static int getNumber() {
+		return number;
+	}
 	private int id;
+	private Point localisation ;
+	private int nbObstacles;
 	private ArrayList<Point> orientation;
+	private ArrayList<Obstacle> tab;
+	private boolean needPlat ;
 
 	/**
 	 * 
@@ -23,23 +32,30 @@ public class Ligne implements ElemManege {
 		super();
 		tab = new ArrayList<Obstacle>();
 		nbObstacles = 0;
-		ElemManege.number++;
+		number++;
 		id = number;
 		orientation = new ArrayList<Point>();
+		localisation = new Point(-1,-1) ;
+		needPlat = false ;
 	}
 
-// TODO faire une construction de la ligne 
-	// en alternant un obstacle et un
-	// plat dont les caractéristiques
-	// doivent être choisies par le client
-
-	@Override
-	public void seDetruire() {
-		for (int i = 0; i < tab.size(); i += 2) {
-			tab.get(i).seDetruire();
+	/**
+	 * @param Obstacle o : l'obstacle a ajouter
+	 * @throws PlatException
+	 * Cette fonction ajoute un obstacle
+	 */
+	public void addObstacle(Obstacle o) throws PlatException {
+		try {
+			if (!(o instanceof Plat)) {
+				if(needPlat) 
+					throw new PlatException(o.toString()) ;
+				needPlat = true ;
+			}
+			tab.add(o) ;
+		}catch(PlatException e) {
+			System.out.println(e.getMessage()) ;
 		}
 	}
-
 	/**
 	 *
 	 */
@@ -54,32 +70,25 @@ public class Ligne implements ElemManege {
 	}
 
 	@Override
-	public double getLargeurMin() {
-		double res = 60;
-		for (int i = 0; i < tab.size(); i++) {
-			if (tab.get(i) != 0 && tab.get(i).hauteur < res)
-				res = tab.get(i).hauteur;
-		}
-		return res;
-	}
-
-	@Override
-	public double getProfondeur() {
-		double res = 0;
-		for (int i = 0; i < 2 * nbObstacles; i++) {
-			res += tab.get(i).profondeur;
-		}
-		return res;
-	}
-
-	@Override
 	public int getId() {
 		return id;
 	}
 
 	@Override
-	public ArrayList<Point> getOrientation() {
-		return orientation;
+	public double getLargeurMin() {
+		double res = 60;
+		for (Obstacle o : tab) {
+			if (o.getHauteur() != 0 && o.hauteur < res)
+				res = o.hauteur;
+		}
+		return res;
+	}
+
+	/**
+	 * @return the localisation
+	 */
+	public Point getLocalisation() {
+		return localisation;
 	}
 
 	/**
@@ -89,6 +98,20 @@ public class Ligne implements ElemManege {
 		return nbObstacles;
 	}
 
+	@Override
+	public ArrayList<Point> getOrientation() {
+		return orientation;
+	}
+
+	@Override
+	public double getProfondeur() {
+		double res = 0;
+		for (Obstacle o : tab) {
+			res += o.profondeur;
+		}
+		return res;
+	}
+
 	/**
 	 * @return the tab
 	 */
@@ -96,12 +119,40 @@ public class Ligne implements ElemManege {
 		return tab;
 	}
 
+	@Override
+	public void seDetruire() {
+		for (Obstacle o : tab) {
+			o.seDetruire();
+		}
+	}
+
+	@Override
+	public void setLocalisation(Point p) {
+		localisation = p ;
+		for (Obstacle o : tab) {
+			o.setLocalisation(p);
+		}
+	}
+
 	/**
-	 * @param orientation the orientation to set
+	 * @param Point p pour entrer droit et au milieu
 	 */
 	@Override
 	public void setOrientation(Point p) {
-		;
+		for (Obstacle o : tab) {
+			if ( !(o instanceof Plat))
+				o.setLocalisation(p);
+		}
+		Obstacle premier = tab.get(0) ;
+		for (Point pos : premier.getOrientation()) {
+			for (Obstacle o : tab) {
+				if ( !(o instanceof Plat)) {
+					if (!(o.orientation.contains(pos)))
+						break ;
+				}
+			}
+			orientation.add(pos) ;
+		}
 	}
 
 }

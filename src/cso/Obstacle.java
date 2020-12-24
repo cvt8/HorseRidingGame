@@ -3,24 +3,42 @@
  */
 package cso;
 
+import java.util.ArrayList;
+
+// OKs
 /**
  * @author constantin
  *
  */
 public abstract class Obstacle {
 
+	protected static int cpt = 0;
 	protected double hauteur;
 	protected int id;
 	protected double largeur;
-	protected double profondeur;
+	protected Point localisation ;
+	protected ArrayList<Point> orientation ;
 
+	protected double profondeur;
 	public Obstacle() {
+		cpt ++ ;
+		id = cpt ;
+		largeur = 0 ;
+		hauteur = 0 ;
+		profondeur =0 ;
+		localisation = new Point(-1,-1) ;
+		orientation = new ArrayList<Point> () ;
 	}
 
 	public Obstacle(double hauteur, double largeur) {
 		super();
 		this.hauteur = hauteur;
 		this.largeur = largeur;
+		cpt ++ ;
+		id = cpt ;
+		profondeur = 0 ;
+		localisation = new Point(-1,-1) ;
+		orientation = new ArrayList<Point> () ;
 	}
 
 	/**
@@ -45,15 +63,48 @@ public abstract class Obstacle {
 	}
 
 	/**
+	 * @return the localisation
+	 */
+	public Point getLocalisation() {
+		return localisation;
+	}
+
+	/**
+	 * @return the orientation
+	 */
+	public ArrayList<Point> getOrientation() {
+		return orientation;
+	}
+
+	/**
 	 * @return the profondeur
 	 */
 	public double getProfondeur() {
 		return profondeur;
 	}
 
+	/**
+	 * Detruit l'obstacle
+	 */
 	public void seDetruire() {
 		hauteur = 0;
 		largeur = 0;
 		profondeur = 0;
 	}
+
+	/**
+	 * @param localisation the localisation to set
+	 */
+	public void setLocalisation(Point localisation) {
+		this.localisation = localisation;
+	}
+
+	@Override
+	public String toString() {
+		return "Obstacle [hauteur=" + hauteur + ", id=" + id + ", largeur=" + largeur + ", localisation=" + localisation
+				+ ", orientation=" + orientation + ", profondeur=" + profondeur + "]";
+	}
+	
+	
+	
 }

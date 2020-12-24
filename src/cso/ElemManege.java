@@ -11,7 +11,6 @@ import java.util.ArrayList;
  */
 
 public interface ElemManege {
-	public static int number = 0;
 
 	public void seDetruire();
 
@@ -19,6 +18,8 @@ public interface ElemManege {
 	 * 
 	 */
 	public void setOrientation(Point p);
+	
+	public void setLocalisation(Point p) ;
 
 	public double getHauteurMax();
 

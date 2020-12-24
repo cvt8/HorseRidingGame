@@ -9,10 +9,10 @@ import java.util.ArrayList;
  * @author constantin
  *
  */
+ 
 public class Auxerre extends Obstacle implements ElemManege {
 
 	private double hauteurAppel;
-	private ArrayList<Point> orientation;
 
 	/**
 	 * @param hauteur
@@ -24,9 +24,6 @@ public class Auxerre extends Obstacle implements ElemManege {
 		super(hauteur, largeur);
 		this.profondeur = profondeur;
 		this.hauteurAppel = hauteurAppel;
-		ElemManege.number++;
-		id = number;
-		orientation = new ArrayList<Point>();
 	}
 
 	/**
@@ -42,39 +39,61 @@ public class Auxerre extends Obstacle implements ElemManege {
 	}
 
 	@Override
-	public int getId() {
-		return id;
-	}
-
-	@Override
 	public double getLargeurMin() {
 		return largeur;
 	}
 
-	/**
-	 * @return the orientation
-	 */
-	@Override
-	public ArrayList<Point> getOrientation() {
-		return orientation;
-	}
 
 	@Override
 	public double getProfondeur() {
 		return profondeur;
 	}
 
+	/**
+	 *Detruit l'obstacle
+	 */
 	@Override
 	public void seDetruire() {
 		super.seDetruire();
 		hauteurAppel = 0;
 	}
-
+	
 	/**
-	 * @param p le point d'où venir pour arriver droit et au milieu
+	 * @param p le point where to come from pour arriver droit et au milieu
+	 * L'orientation coorespond a une liste de points par lesquels le cavalier peut aborder l'obstacle
 	 */
 	public void setOrientation(Point p) {
-		this.orientation = ;
+		try {
+			if (p.equals(localisation))
+				throw new MemepointException() ;
+			if (p.sontAdjacents(localisation))
+				throw new AdjacentException() ;
+			orientation.clear();
+			orientation.add(p) ;
+			for (int i = localisation.getX() -1 ; i < localisation.getX() +2 ; i++) {
+				for (int j = localisation.getY() -1 ; j < localisation.getY() +2 ; i++) {
+					Point test = new Point(i,j) ;
+					if(test.sontAdjacents(p))
+						orientation.add(new Point(i,j)) ;
+				}
+			}
+			
+		}catch(MemepointException d) {
+			System.out.println(d.getMessage()) ;
+		}
+		catch(AdjacentException e) {
+			System.out.println(e.getMessage()) ;
+			// TODO etre comprehensif
+		}
 	}
+
+	@Override
+	public String toString() {
+		return "Auxerre [hauteurAppel=" + hauteurAppel + ", hauteur=" + hauteur + ", id=" + id + ", largeur=" + largeur
+				+ ", localisation=" + localisation + ", orientation=" + orientation + ", profondeur=" + profondeur
+				+ "]";
+	}
+	
+	
 
 }

@@ -11,9 +11,7 @@ import java.util.ArrayList;
  */
 public class Vertical extends Obstacle implements ElemManege {
 
-	private int id;
 	private int nbBarres;
-	private ArrayList<Point> orientation;
 
 	/**
 	 * @param hauteur
@@ -23,39 +21,20 @@ public class Vertical extends Obstacle implements ElemManege {
 	public Vertical(double hauteur, double largeur, int nbBarres) {
 		super(hauteur, largeur);
 		this.nbBarres = nbBarres;
-		ElemManege.number++;
-		id = number;
-		profondeur = 0;
-		orientation = new ArrayList<Point>();
 	}
 
 	@Override
 	public double getHauteurMax() {
-
 		return hauteur;
 	}
 
 	@Override
-	public int getId() {
-		return id;
-	}
-
-	@Override
 	public double getLargeurMin() {
-
 		return largeur;
 	}
 
 	public int getNbBarres() {
 		return nbBarres;
-	}
-
-	/**
-	 * @return the orientation
-	 */
-	@Override
-	public ArrayList<Point> getOrientation() {
-		return orientation;
 	}
 
 	@Override
@@ -78,7 +57,37 @@ public class Vertical extends Obstacle implements ElemManege {
 	 * @param orientation the orientation to set
 	 */
 	public void setOrientation(Point p) {
-		this.orientation = ;
+		try {
+			if (p.equals(localisation))
+				throw new MemepointException() ;
+			if (p.sontAdjacents(localisation))
+				throw new AdjacentException() ;
+			orientation.clear();
+			orientation.add(p) ;
+			for (int i = localisation.getX() -1 ; i < localisation.getX() +2 ; i++) {
+				for (int j = localisation.getY() -1 ; j < localisation.getY() +2 ; i++) {
+					Point essai = new Point(i,j) ;
+					if(essai.sontAdjacents(p)) {
+						orientation.add(new Point(i,j)) ;
+						orientation.add(new Point(essai.getSymetrique(localisation))) ;
+					}
+				}
+			}
+		}catch(MemepointException d) {
+			System.out.println(d.getMessage()) ;
+		}
+		catch(AdjacentException e) {
+			System.out.println(e.getMessage()) ;
+			// TODO etre comprehensif
+		}
 	}
 
+	@Override
+	public String toString() {
+		return "Vertical [nbBarres=" + nbBarres + ", hauteur=" + hauteur + ", id=" + id + ", largeur=" + largeur
+				+ ", localisation=" + localisation + ", orientation=" + orientation + ", profondeur=" + profondeur
+				+ "]";
+	}
+	
+	
 }
