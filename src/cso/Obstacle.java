@@ -5,7 +5,6 @@ package cso;
 
 import java.util.ArrayList;
 
-// OKs
 /**
  * @author constantin
  *
@@ -16,29 +15,30 @@ public abstract class Obstacle {
 	protected double hauteur;
 	protected int id;
 	protected double largeur;
-	protected Point localisation ;
-	protected ArrayList<Point> orientation ;
+	protected Point localisation;
+	protected ArrayList<Point> orientation;
 
 	protected double profondeur;
+
 	public Obstacle() {
-		cpt ++ ;
-		id = cpt ;
-		largeur = 0 ;
-		hauteur = 0 ;
-		profondeur =0 ;
-		localisation = new Point(-1,-1) ;
-		orientation = new ArrayList<Point> () ;
+		cpt++;
+		id = cpt;
+		largeur = 0;
+		hauteur = 0;
+		profondeur = 0;
+		localisation = new Point(-1, -1);
+		orientation = new ArrayList<Point>();
 	}
 
 	public Obstacle(double hauteur, double largeur) {
 		super();
 		this.hauteur = hauteur;
 		this.largeur = largeur;
-		cpt ++ ;
-		id = cpt ;
-		profondeur = 0 ;
-		localisation = new Point(-1,-1) ;
-		orientation = new ArrayList<Point> () ;
+		cpt++;
+		id = cpt;
+		profondeur = 0;
+		localisation = new Point(-1, -1);
+		orientation = new ArrayList<Point>();
 	}
 
 	/**
@@ -104,7 +104,5 @@ public abstract class Obstacle {
 		return "Obstacle [hauteur=" + hauteur + ", id=" + id + ", largeur=" + largeur + ", localisation=" + localisation
 				+ ", orientation=" + orientation + ", profondeur=" + profondeur + "]";
 	}
-	
-	
-	
+
 }

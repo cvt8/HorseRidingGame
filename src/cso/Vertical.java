@@ -3,8 +3,6 @@
  */
 package cso;
 
-import java.util.ArrayList;
-
 /**
  * @author constantin
  *
@@ -56,28 +54,28 @@ public class Vertical extends Obstacle implements ElemManege {
 	/**
 	 * @param orientation the orientation to set
 	 */
+	@Override
 	public void setOrientation(Point p) {
 		try {
 			if (p.equals(localisation))
-				throw new MemepointException() ;
+				throw new MemepointException();
 			if (p.sontAdjacents(localisation))
-				throw new AdjacentException() ;
+				throw new AdjacentException();
 			orientation.clear();
-			orientation.add(p) ;
-			for (int i = localisation.getX() -1 ; i < localisation.getX() +2 ; i++) {
-				for (int j = localisation.getY() -1 ; j < localisation.getY() +2 ; i++) {
-					Point essai = new Point(i,j) ;
-					if(essai.sontAdjacents(p)) {
-						orientation.add(new Point(i,j)) ;
-						orientation.add(new Point(essai.getSymetrique(localisation))) ;
+			orientation.add(p);
+			for (int i = localisation.getX() - 1; i < localisation.getX() + 2; i++) {
+				for (int j = localisation.getY() - 1; j < localisation.getY() + 2; i++) {
+					Point essai = new Point(i, j);
+					if (essai.sontAdjacents(p)) {
+						orientation.add(new Point(i, j));
+						orientation.add(new Point(essai.getSymetrique(localisation)));
 					}
 				}
 			}
-		}catch(MemepointException d) {
-			System.out.println(d.getMessage()) ;
-		}
-		catch(AdjacentException e) {
-			System.out.println(e.getMessage()) ;
+		} catch (MemepointException d) {
+			System.out.println(d.getMessage());
+		} catch (AdjacentException e) {
+			System.out.println(e.getMessage());
 			// TODO etre comprehensif
 		}
 	}
@@ -88,6 +86,5 @@ public class Vertical extends Obstacle implements ElemManege {
 				+ ", localisation=" + localisation + ", orientation=" + orientation + ", profondeur=" + profondeur
 				+ "]";
 	}
-	
-	
+
 }
