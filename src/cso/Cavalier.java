@@ -5,39 +5,42 @@ public class Cavalier {
 	int x;
 	int y;
 	float tailleCheval;
-	static int i=0;
-	public  Cavalier(String nom,int x,int y,float taille) {
+	 int point;
+	public  Cavalier(String nom,int x,int y,float taille,int point) {
 		this.nom=nom;
 		this.x=x;
 		this.y=x;
 		this.tailleCheval=taille;
-		i++; // compteur permettant de connaitre le nombre de cheval pr��sent 
+		this.point=point;
 	}
 	
 	public void Saut(){
 		
 		  if (tailleCheval== 1.60) {
 			  
-		    if (Math.random() > 0.03) {
-		    	// action  sur le saut obstacle 
+		    if ((Math.random()*100) > 30) // 70 pourcent de chance de sauter
+		    	{
+		    	point--;
 		    }
 		    else {
+		    	point=0;
 		    	
 		    }
 		  }else if (tailleCheval==1.65) {
-			  if (Math.random() > 0.002) {
-			    	// action sur le saut obstacle
+			  if ((Math.random()*100) > 25) // 75 pourcent de chance de sauter
+			  {
+			    	point--;
 			    }
 			  else {
-				  
+				  point=0;
 			  }
 		  }
 		  else {
-			  if (Math.random() > 0.001) {
-			    	// action sur le saut obstacle
+			  if ((Math.random()*100) > 20) {
+			    	point--;
 			    }else
 			    {
-			    	
+			    	point=0;
 			    }
 		  
 		}
@@ -52,10 +55,7 @@ public class Cavalier {
 		// methode retournant le nom
 		return nom ;
 	}
-	public void bouger() {
-		// methode faisant bouger le cavalier sur le parcours utilisant random pour savoir de combien ils avan��ent 
-		// ou si ils chutent etc ...
-	}
+	
 	
 
 }
