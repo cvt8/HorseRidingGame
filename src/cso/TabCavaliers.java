@@ -1,22 +1,25 @@
-
+package cso;
 
 import java.util.ArrayList;
 
 public class TabCavaliers {
-	Cavaliers ch1=new Cavaliers("Zingaro");
-	Cavaliers ch2=new Cavaliers("Felous");
-	Cavaliers ch3=new Cavaliers("Templado");
-	Cavaliers ch4=new Cavaliers("Quijote");
-	Cavaliers ch5=new Cavaliers("Tao");
-	Cavaliers ch6=new Cavaliers("Nikito");
-	Cavaliers ch7=new Cavaliers("Bucéphale");
-	Cavaliers ch8=new Cavaliers("Marengo");
-	ArrayList<Cavaliers> Tab=new ArrayList<Cavaliers>();
+	Cavalier ch1 = new Cavalier("Zingaro");
+	Cavalier ch2 = new Cavalier("Felous");
+	Cavalier ch3 = new Cavalier("Templado");
+	Cavalier ch4 = new Cavalier("Quijote");
+	Cavalier ch5 = new Cavalier("Tao");
+	Cavalier ch6 = new Cavalier("Nikito");
+	Cavalier ch7 = new Cavalier("Bucéphale");
+	Cavalier ch8 = new Cavalier("Marengo");
+	static ArrayList<Cavalier> Tab = new ArrayList<Cavalier>();
 
-	public void AjouteCavaliers(Cavaliers unk) {
+	private TabCavaliers() {
+	}
+
+	public void ajouteCavaliers(Cavalier unk) {
 		Tab.add(unk);
 	}
-	
+
 	public void makeTab() {
 		Tab.add(ch1);
 		Tab.add(ch2);
@@ -27,8 +30,8 @@ public class TabCavaliers {
 		Tab.add(ch7);
 		Tab.add(ch8);
 	}
-	
-	public ArrayList<Cavaliers> getTab() {
+
+	public ArrayList<Cavalier> getTab() {
 		return Tab;
 	}
 

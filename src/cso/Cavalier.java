@@ -1,24 +1,25 @@
-package cso ;
+package cso;
 
-public class Cavaliers {
+public class Cavalier {
 	String nom;
 	double tailleCheval;
 	int score;
-	public  Cavalier(String nom,float taille,int score) {
-		this.nom=nom;
-		this.tailleCheval=taille;
-		this.score=score;
+
+	public Cavalier(String nom, float taille, int score) {
+		this.nom = nom;
+		this.tailleCheval = taille;
+		this.score = score;
 	}
-	
-	public Cavalier(String nom) {
+
+	public Cavalier(String nom){
 		this.nom=nom;
-		this.tailleCheval=(Math.random()*(1.60 - 1.80));
+		this.tailleCheval= 1.48 + Math.random()*(1.8 - 1.48);
 	}
-	
+
 	public void Saut(String TypeObstacle){
-		// taille minimun de cheval de 1.60  
+		// taille minimun de cheval de 1.48  
 		switch(TypeObstacle) {
-		  case "1er type obstacle": // Le plus petit si on le passe pas eliminatoire
+		  case "1er type obstacle" :// Le plus petit si on le passe pas eliminatoire
 			  if (tailleCheval== 1.60) {
 				  
 				    if ((Math.random()*100) > 30) // 70 pourcent de chance de sauter
@@ -45,7 +46,7 @@ public class Cavaliers {
 					    {
 					    	score-=4;
 					    }
-		    break;
+		    break ;
 		  case "2eme type obtsacle": // Milieux de gammes 
 			  if (tailleCheval== 1.60) {
 				  
@@ -73,7 +74,7 @@ public class Cavaliers {
 					    {
 					    	score-=6;
 					    }
-		    break;
+		    break ;
 		  default:// 3eme type obstacle les plus haut 
 			  
 			  if (tailleCheval== 1.60) {
@@ -102,4 +103,6 @@ public class Cavaliers {
 					    {
 					    	score=0;
 					    }
-		}
+				  }
+				  }
+}
