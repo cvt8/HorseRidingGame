@@ -14,9 +14,10 @@ public class Cavalier {
 	public Cavalier(String nom){
 		this.nom=nom;
 		this.tailleCheval= 1.48 + Math.random()*(1.8 - 1.48);
-	}
+	} // l'IDE signale une erreur ici. Bizarre. Par ailleurs, un cheval reglementaire
+		// doit faire plus de 1,48 m.
 
-	public void Saut(String TypeObstacle){
+	public void saut(String TypeObstacle){
 		// taille minimun de cheval de 1.48  
 		switch(TypeObstacle) {
 		  case "1er type obstacle" :// Le plus petit si on le passe pas eliminatoire

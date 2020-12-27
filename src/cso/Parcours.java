@@ -31,7 +31,7 @@ public class Parcours {
 	}
 
 	/**
-	 * @param p :Point a ajouter
+	 * @param p Point a ajouter
 	 * @throws AdjacentException
 	 * @throws AbordException
 	 */

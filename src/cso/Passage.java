@@ -4,7 +4,7 @@
 package cso;
 
 /**
- * @author constantin
+ * @author Lucas Zebre
  *
  */
 public class Passage {
@@ -19,9 +19,6 @@ public class Passage {
 	private static int cpt = 0;
 	private int id;
 
-	/**
-	 * 
-	 */
 	/**
 	 * @param cav
 	 * @param man
