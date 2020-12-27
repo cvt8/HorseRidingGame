@@ -22,6 +22,8 @@ public class Auxerre extends Obstacle implements ElemManege {
 		super(hauteur, largeur);
 		this.profondeur = profondeur;
 		this.hauteurAppel = hauteurAppel;
+		tailleDiff = hauteur + 2 * (hauteur - hauteurAppel);
+		vitesseDiff = hauteurAppel + 2 * (hauteur - hauteurAppel) + 1 / Math.pow(largeur, 2) - 2 * profondeur;
 	}
 
 	/**

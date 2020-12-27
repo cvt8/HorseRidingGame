@@ -11,19 +11,23 @@ import java.util.ArrayList;
  */
 public class Ligne implements ElemManege {
 
-	private static int number = 1000 ;
+	private static int number = 1000;
+
 	/**
 	 * @return the number
 	 */
 	public static int getNumber() {
 		return number;
 	}
+
 	private int id;
-	private Point localisation ;
+	private Point localisation;
 	private int nbObstacles;
+	private boolean needPlat;
 	private ArrayList<Point> orientation;
 	private ArrayList<Obstacle> tab;
-	private boolean needPlat ;
+	private double tailleDiff;
+	private double vitesseDiff;
 
 	/**
 	 * 
@@ -35,27 +39,35 @@ public class Ligne implements ElemManege {
 		number++;
 		id = number;
 		orientation = new ArrayList<Point>();
-		localisation = new Point(-1,-1) ;
-		needPlat = false ;
+		localisation = new Point(-1, -1);
+		needPlat = false;
+		tailleDiff = 0;
+		vitesseDiff = 0;
 	}
 
 	/**
 	 * @param Obstacle o : l'obstacle a ajouter
-	 * @throws PlatException
-	 * Cette fonction ajoute un obstacle
+	 * @throws PlatException Cette fonction ajoute un obstacle
 	 */
 	public void addObstacle(Obstacle o) throws PlatException {
 		try {
 			if (!(o instanceof Plat)) {
-				if(needPlat) 
-					throw new PlatException(o.toString()) ;
-				needPlat = true ;
-			}
-			tab.add(o) ;
-		}catch(PlatException e) {
-			System.out.println(e.getMessage()) ;
+				if (needPlat)
+					throw new PlatException(o.toString());
+				needPlat = true;
+				nbObstacles++;
+				tailleDiff += o.tailleDiff;
+				tailleDiff = Math.sqrt(tailleDiff);
+				vitesseDiff += o.vitesseDiff;
+				vitesseDiff = Math.sqrt(vitesseDiff);
+			} else
+				vitesseDiff += o.vitesseDiff;
+			tab.add(o);
+		} catch (PlatException e) {
+			System.out.println(e.getMessage());
 		}
 	}
+
 	/**
 	 *
 	 */
@@ -120,6 +132,16 @@ public class Ligne implements ElemManege {
 	}
 
 	@Override
+	public double getTailleDiff() {
+		return tailleDiff;
+	}
+
+	@Override
+	public double getVitesseDiff() {
+		return vitesseDiff;
+	}
+
+	@Override
 	public void seDetruire() {
 		for (Obstacle o : tab) {
 			o.seDetruire();
@@ -128,7 +150,7 @@ public class Ligne implements ElemManege {
 
 	@Override
 	public void setLocalisation(Point p) {
-		localisation = p ;
+		localisation = p;
 		for (Obstacle o : tab) {
 			o.setLocalisation(p);
 		}
@@ -140,18 +162,18 @@ public class Ligne implements ElemManege {
 	@Override
 	public void setOrientation(Point p) {
 		for (Obstacle o : tab) {
-			if ( !(o instanceof Plat))
+			if (!(o instanceof Plat))
 				o.setLocalisation(p);
 		}
-		Obstacle premier = tab.get(0) ;
+		Obstacle premier = tab.get(0);
 		for (Point pos : premier.getOrientation()) {
 			for (Obstacle o : tab) {
-				if ( !(o instanceof Plat)) {
+				if (!(o instanceof Plat)) {
 					if (!(o.orientation.contains(pos)))
-						break ;
+						break;
 				}
 			}
-			orientation.add(pos) ;
+			orientation.add(pos);
 		}
 	}
 

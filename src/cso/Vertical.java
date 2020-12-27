@@ -19,6 +19,8 @@ public class Vertical extends Obstacle implements ElemManege {
 	public Vertical(double hauteur, double largeur, int nbBarres) {
 		super(hauteur, largeur);
 		this.nbBarres = nbBarres;
+		tailleDiff = hauteur * 0.5 * (1 + nbBarres);
+		vitesseDiff = hauteur + 1 / Math.pow(largeur, 2);
 	}
 
 	@Override

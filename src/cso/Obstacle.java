@@ -15,6 +15,8 @@ public abstract class Obstacle {
 	protected double hauteur;
 	protected int id;
 	protected double largeur;
+	protected double vitesseDiff;
+	protected double tailleDiff;
 	protected Point localisation;
 	protected ArrayList<Point> orientation;
 
@@ -26,6 +28,8 @@ public abstract class Obstacle {
 		largeur = 0;
 		hauteur = 0;
 		profondeur = 0;
+		vitesseDiff = 0;
+		tailleDiff = 0;
 		localisation = new Point(-1, -1);
 		orientation = new ArrayList<Point>();
 	}
@@ -37,6 +41,8 @@ public abstract class Obstacle {
 		cpt++;
 		id = cpt;
 		profondeur = 0;
+		vitesseDiff = 0;
+		tailleDiff = 0;
 		localisation = new Point(-1, -1);
 		orientation = new ArrayList<Point>();
 	}
@@ -67,6 +73,20 @@ public abstract class Obstacle {
 	 */
 	public Point getLocalisation() {
 		return localisation;
+	}
+
+	/**
+	 * @return the vitesseDiff
+	 */
+	public double getVitesseDiff() {
+		return vitesseDiff;
+	}
+
+	/**
+	 * @return the tailleDiff
+	 */
+	public double getTailleDiff() {
+		return tailleDiff;
 	}
 
 	/**
