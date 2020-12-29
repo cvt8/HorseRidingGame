@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author constantin
  *
  */
-public abstract class Obstacle {
+public  class Obstacle {
 
 	protected static int cpt = 0;
 	protected double hauteur;
