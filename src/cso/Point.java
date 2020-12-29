@@ -66,5 +66,12 @@ public class Point {
 	public double distance(Point p) {
 		return (20.0 / 3.0) * Math.sqrt(Math.pow(x - p.x, 2) + Math.pow(y - p.y, 2));
 	}
+	
+	
+	
+	public void  set(String[][] tab){
+		tab[x][y]="@";
+		
+	}
 
 }
