@@ -37,7 +37,8 @@ public class Passage {
 		cpt++;
 		id = cpt;
 	}
-public void Saut(Obstacle random,Cavaliers tou){
+
+public void Saut(Obstacle random,Cavalier tou){
 	// taille minimun de cheval de 1.60  
 	switch(random.getId()) {
 	  case 1: // Le plus petit si on le passe pas eliminatoire
