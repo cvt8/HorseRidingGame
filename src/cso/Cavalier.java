@@ -1,9 +1,9 @@
 package cso;
 
 public class Cavalier {
-	String nom;
-	double tailleCheval;
-	int score;
+	private String nom;
+	private double tailleCheval;
+	private int score;
 
 	public Cavalier(String nom, float taille, int score) {
 		this.nom = nom;
