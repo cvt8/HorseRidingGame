@@ -46,7 +46,7 @@ public class Ligne implements ElemManege {
 	}
 
 	/**
-	 * @param Obstacle o : l'obstacle a ajouter
+	 * @param o : l'obstacle a ajouter
 	 * @throws PlatException Cette fonction ajoute un obstacle
 	 */
 	public void addObstacle(Obstacle o) throws PlatException {
@@ -159,7 +159,7 @@ public class Ligne implements ElemManege {
 	}
 
 	/**
-	 * @param Point p pour entrer droit et au milieu
+	 * @param p Point pour entrer droit et au milieu
 	 */
 	@Override
 	public void setOrientation(Point p) {

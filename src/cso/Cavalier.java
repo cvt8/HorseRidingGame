@@ -25,14 +25,14 @@ public class Cavalier {
 	 * @param taille
 	 * @param vitesse en metres par minutes
 	 */
-	public Cavalier(String nom, float taille, int score, double vitesse) {
+	public Cavalier(String nom, float taille, double vitesse) {
 		this.nom = nom;
 		this.tailleCheval = taille;
 		this.vitesse = vitesse;
 	}
 
 	/**
-	 * @return
+	 * @return le nom du cheval
 	 */
 	public String getNom() {
 		return nom;
