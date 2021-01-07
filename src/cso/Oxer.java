@@ -8,7 +8,7 @@ package cso;
  *
  */
 
-public class Auxerre extends Obstacle implements ElemManege {
+public class Oxer extends Obstacle implements ElemManege {
 
 	private double hauteurAppel;
 
@@ -18,7 +18,7 @@ public class Auxerre extends Obstacle implements ElemManege {
 	 * @param profondeur
 	 * @param hauteurAppel
 	 */
-	public Auxerre(double hauteur, double largeur, double profondeur, double hauteurAppel) {
+	public Oxer(double hauteur, double largeur, double profondeur, double hauteurAppel) {
 		super(hauteur, largeur);
 		this.profondeur = profondeur;
 		this.hauteurAppel = hauteurAppel;
@@ -41,11 +41,6 @@ public class Auxerre extends Obstacle implements ElemManege {
 	@Override
 	public double getLargeurMin() {
 		return largeur;
-	}
-
-	@Override
-	public double getProfondeur() {
-		return profondeur;
 	}
 
 	/**

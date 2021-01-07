@@ -4,7 +4,7 @@
 package cso;
 
 /**
- * @author constantin
+ * @author Constantin
  *
  */
 public class Vertical extends Obstacle implements ElemManege {

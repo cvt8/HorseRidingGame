@@ -6,7 +6,7 @@ package cso;
 import java.util.ArrayList;
 
 /**
- * @author constantin
+ * @author Constantin
  *
  */
 public class Ligne implements ElemManege {

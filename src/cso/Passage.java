@@ -4,7 +4,7 @@
 package cso;
 
 /**
- * @author Lucas Zebre
+ * @author Lucas Zebre et Constantin Tenzer
  *
  */
 public class Passage {
@@ -21,7 +21,6 @@ public class Passage {
 
 	/**
 	 * @param cav
-	 * @param man
 	 * @param par
 	 */
 	public Passage(Cavalier cav, Parcours par) {
@@ -38,11 +37,15 @@ public class Passage {
 		id = cpt;
 	}
 
-	public void Saut(Obstacle random, Cavalier tou) {
-		// taille minimun de cheval de 1.60
+	/**
+	 * @param random l'obstacle sauté
+	 * @param tou    le cheval qui saute
+	 */
+	public void saut(ElemManege random, Cavalier tou) {
+		// taille minimun de cheval de 1.48
 		switch (random.getId()) {
 		case 1: // Le plus petit si on le passe pas eliminatoire
-			if (tou.getTailleCheval() == 1.60) {
+			if (tou.getTailleCheval() == 1.48) {
 
 				if ((Math.random() * 100) > 30) // 70 pourcent de chance de sauter
 				{
@@ -119,5 +122,32 @@ public class Passage {
 			}
 		}
 
+	}
+
+	private void saut(ElemManege obs) {
+		double diff = 225 * cav.getTailleCheval() * obs.getTailleDiff() + cav.getVitesse() * obs.getVitesseDiff();
+		double probaChute = 1.0 / 1000 * 0.02 * diff;
+		double probaBarreTomb = 1.0 / 1000 * 0.13 * diff;
+		double probaBarreTouch = 1.0 / 1000 * 0.35 * diff;
+		double chance = Math.random();
+		if (chance < probaChute) {
+			abandon = true;
+			System.out.println("chute, ABANDON");
+		}
+		if (chance >= probaChute && chance < probaBarreTomb + probaChute)
+			score += 4;
+		if (chance >= probaBarreTomb + probaChute && chance < probaBarreTomb + probaChute + probaBarreTouch)
+			score += 2;
+	}
+
+	public void passage() {
+		for (int i = 0; i < par.size(); i++) {
+			ElemManege obs = par.getElem(i);
+			if (obs != null) {
+				saut(obs);
+			}
+			if (abandon)
+				break;
+		}
 	}
 }

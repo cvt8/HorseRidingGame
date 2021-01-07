@@ -50,4 +50,19 @@ public class Parcours {
 		}
 	}
 
+	/**
+	 * @param i
+	 * @return l'obstacle ou la ligne contenant le i+1 ème point traversé
+	 */
+	public ElemManege getElem(int i) {
+		return man.getElem(ordre.get(i));
+	}
+
+	/**
+	 * @return le nombre de points traverses
+	 */
+	public int size() {
+		return ordre.size();
+	}
+
 }

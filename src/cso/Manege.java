@@ -3,13 +3,17 @@
  */
 package cso;
 
+/**
+ * @author Constantin et Lucas Zèbre
+ */
 public class Manege {
 	public final int LARGEUR = 3;
 	public final int LONGUEUR = 9;
-	private ElemManege[][] manege;
+	private ElemManege[][] manege = new ElemManege[3][9];
+	private String[][] tab = new String[3][9];
 
 	public Manege() {
-		manege = new ElemManege[3][9];
+		init();
 	}
 
 	/**
@@ -30,7 +34,7 @@ public class Manege {
 		return manege;
 	}
 
-	public void Init(String[][] tab) {
+	private void init() {
 		for (int i = 0; i < tab.length; i++) {
 			for (int u = 0; u < tab[i].length; u++) {
 				switch (i) {
@@ -89,7 +93,7 @@ public class Manege {
 		}
 	}
 
-	public void afficher(String[][] tab) {
+	public void afficher() {
 		System.out.println("Depart");
 		for (int i = 0; i < tab.length; i++) {
 			for (int u = 0; u < tab[i].length; u++) {
