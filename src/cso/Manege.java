@@ -25,6 +25,7 @@ public class Manege {
 		manege[p.getX()][p.getY()] = elem;
 		elem.setLocalisation(p);
 		elem.setOrientation(abord);
+		p.set(tab);
 	}
 
 	/**
@@ -102,6 +103,18 @@ public class Manege {
 			System.out.println();
 		}
 		System.out.println("Arrivé");
+	}
+
+	@Override
+	public String toString() {
+		String s = "Depart ";
+		for (int i = 0; i < tab.length; i++) {
+			for (int u = 0; u < tab[i].length; u++) {
+				s += tab[i][u];
+			}
+			s += "\n";
+		}
+		return s + " Arrivé";
 	}
 
 	public ElemManege getElem(Point p) {

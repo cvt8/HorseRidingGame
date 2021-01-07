@@ -1,0 +1,2 @@
+Passage [cav=Cavalier [nom=Tornado, score=0, tailleCheval=1.4986106869733051, vitesse=360.0], abandon=false, started=true, finished=false, points=0, id=1]
+Passage [cav=Cavalier [nom=Tornado, score=0, tailleCheval=1.4986106869733051, vitesse=360.0], abandon=false, started=true, finished=true, points=0, id=1]

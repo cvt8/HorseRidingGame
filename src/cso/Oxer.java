@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package cso;
 
@@ -73,7 +73,6 @@ public class Oxer extends Obstacle implements ElemManege {
 						orientation.add(new Point(i, j));
 				}
 			}
-
 		} catch (MemepointException d) {
 			System.out.println(d.getMessage());
 		} catch (AdjacentException e) {

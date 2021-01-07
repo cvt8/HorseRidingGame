@@ -2,8 +2,10 @@ package cso;
 
 import java.util.ArrayList;
 
-// on en fait une classe statique. Mais dans ce cas, ce n'était pas très clair. Peut-être faire une méthode statique. Mais sinon, on coche déjà la contrainte.
-
+/**
+ * @author Lucas Zebre
+ *
+ */
 public class TabCavaliers {
 	private Cavalier ch1 = new Cavalier("Zingaro");
 	private Cavalier ch2 = new Cavalier("Felous");
@@ -15,6 +17,9 @@ public class TabCavaliers {
 	private Cavalier ch8 = new Cavalier("Marengo");
 	private ArrayList<Cavalier> tab = new ArrayList<Cavalier>();
 
+	/**
+	 * 
+	 */
 	public TabCavaliers() {
 		tab = new ArrayList<Cavalier>();
 		tab.add(ch1);
@@ -27,12 +32,17 @@ public class TabCavaliers {
 		tab.add(ch8);
 	}
 
+	/**
+	 * @param unk
+	 */
 	public void ajouteCavaliers(Cavalier unk) {
 		tab.add(unk);
 	}
 
+	/**
+	 * @return
+	 */
 	public ArrayList<Cavalier> getTab() {
 		return tab;
 	}
-
 }

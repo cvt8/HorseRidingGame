@@ -65,4 +65,8 @@ public class Parcours {
 		return ordre.size();
 	}
 
+	public void afficher() {
+		man.afficher();
+	}
+
 }

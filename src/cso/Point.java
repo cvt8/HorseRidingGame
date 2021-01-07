@@ -11,6 +11,7 @@ public class Point {
 
 	private int x;
 	private int y;
+	private String nom;
 
 	/**
 	 * @param x
@@ -20,6 +21,9 @@ public class Point {
 		super();
 		this.x = x;
 		this.y = y;
+		nom = "";
+		nom += x;
+		nom += y;
 	}
 
 	public Point(Point p) {
@@ -66,12 +70,14 @@ public class Point {
 	public double distance(Point p) {
 		return (20.0 / 3.0) * Math.sqrt(Math.pow(x - p.x, 2) + Math.pow(y - p.y, 2));
 	}
-	
-	
-	
-	public void  set(String[][] tab){
-		tab[x][y]="@";
-		
+
+	public void set(String[][] tab) {
+		tab[x][y] = "@";
+	}
+
+	@Override
+	public String toString() {
+		return nom;
 	}
 
 }
