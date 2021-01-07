@@ -7,7 +7,11 @@ package cso;
  * @author constantin
  *
  */
-public class MemepointException extends AdjacentException{
+/**
+ * @author constantin
+ *
+ */
+public class MemepointException extends AdjacentException {
 
 	/**
 	 * 
@@ -17,8 +21,8 @@ public class MemepointException extends AdjacentException{
 	/**
 	 * 
 	 */
-	public MemepointException() {
-		super("Ce sont les memes points !") ;
+	public MemepointException(String point) {
+		super("Ce sont les memes points ! " + point);
 	}
 
 }

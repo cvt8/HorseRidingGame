@@ -13,10 +13,10 @@ public class Oxer extends Obstacle implements ElemManege {
 	private double hauteurAppel;
 
 	/**
-	 * @param hauteur
-	 * @param largeur
-	 * @param profondeur
-	 * @param hauteurAppel
+	 * @param hauteur      en metres
+	 * @param largeur      en metres
+	 * @param profondeur   en metres
+	 * @param hauteurAppel en metres
 	 */
 	public Oxer(double hauteur, double largeur, double profondeur, double hauteurAppel) {
 		super(hauteur, largeur);
@@ -61,13 +61,13 @@ public class Oxer extends Obstacle implements ElemManege {
 	public void setOrientation(Point p) {
 		try {
 			if (p.equals(localisation))
-				throw new MemepointException();
-			if (p.sontAdjacents(localisation))
-				throw new AdjacentException();
+				throw new MemepointException(p.toString());
+			if (!(p.sontAdjacents(localisation)))
+				throw new AdjacentException(p.toString() + localisation.toString());
 			orientation.clear();
 			orientation.add(p);
 			for (int i = localisation.getX() - 1; i < localisation.getX() + 2; i++) {
-				for (int j = localisation.getY() - 1; j < localisation.getY() + 2; i++) {
+				for (int j = localisation.getY() - 1; j < localisation.getY() + 2; j++) {
 					Point test = new Point(i, j);
 					if (test.sontAdjacents(p))
 						orientation.add(new Point(i, j));
@@ -83,7 +83,7 @@ public class Oxer extends Obstacle implements ElemManege {
 
 	@Override
 	public String toString() {
-		return "Auxerre [hauteurAppel=" + hauteurAppel + ", hauteur=" + hauteur + ", id=" + id + ", largeur=" + largeur
+		return "Oxer [hauteurAppel=" + hauteurAppel + ", hauteur=" + hauteur + ", id=" + id + ", largeur=" + largeur
 				+ ", localisation=" + localisation + ", orientation=" + orientation + ", profondeur=" + profondeur
 				+ "]";
 	}

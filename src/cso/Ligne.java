@@ -60,8 +60,10 @@ public class Ligne implements ElemManege {
 				tailleDiff = Math.sqrt(tailleDiff);
 				vitesseDiff += o.vitesseDiff;
 				vitesseDiff = Math.sqrt(vitesseDiff);
-			} else
+			} else {
+				needPlat = false;
 				vitesseDiff += o.vitesseDiff;
+			}
 			tab.add(o);
 		} catch (PlatException e) {
 			System.out.println(e.getMessage());
@@ -163,18 +165,31 @@ public class Ligne implements ElemManege {
 	public void setOrientation(Point p) {
 		for (Obstacle o : tab) {
 			if (!(o instanceof Plat))
-				o.setLocalisation(p);
+				o.setOrientation(p);
 		}
 		Obstacle premier = tab.get(0);
 		for (Point pos : premier.getOrientation()) {
+			boolean abscence = false;
 			for (Obstacle o : tab) {
 				if (!(o instanceof Plat)) {
-					if (!(o.orientation.contains(pos)))
+					if (!(o.orientation.contains(pos))) {
+						abscence = true;
 						break;
+					}
 				}
 			}
+			if (abscence)
+				continue;
 			orientation.add(pos);
 		}
+	}
+
+	@Override
+	public String toString() {
+		return "Ligne [id=" + id + ", " + (localisation != null ? "localisation=" + localisation + ", " : "")
+				+ "nbObstacles=" + nbObstacles + ", " + (orientation != null ? "orientation=" + orientation + ", " : "")
+				+ (tab != null ? "tab=" + tab + ", " : "") + "tailleDiff=" + tailleDiff + ", vitesseDiff=" + vitesseDiff
+				+ "]";
 	}
 
 }

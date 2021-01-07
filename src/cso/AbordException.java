@@ -17,8 +17,12 @@ public class AbordException extends Exception {
 	/**
 	 * 
 	 */
-	public AbordException() {
-		super("Cette case contient un obstacle qui n'est pas abordable depuis la position precedente") ;
+	/**
+	 * @param point
+	 */
+	public AbordException(String point) {
+		super("Cette case contient un obstacle situé en " + point
+				+ " qui n'est pas abordable depuis la position precedente");
 	}
 
 }

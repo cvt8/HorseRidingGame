@@ -125,4 +125,9 @@ public abstract class Obstacle {
 				+ ", orientation=" + orientation + ", profondeur=" + profondeur + "]";
 	}
 
+	/**
+	 * @param p
+	 */
+	protected abstract void setOrientation(Point p);
+
 }

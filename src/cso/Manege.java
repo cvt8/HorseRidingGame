@@ -107,14 +107,14 @@ public class Manege {
 
 	@Override
 	public String toString() {
-		String s = "Depart ";
+		String s = "Ligne a ";
 		for (int i = 0; i < tab.length; i++) {
 			for (int u = 0; u < tab[i].length; u++) {
 				s += tab[i][u];
 			}
 			s += "\n";
 		}
-		return s + " Arrivé";
+		return s + " Ligne c";
 	}
 
 	public ElemManege getElem(Point p) {

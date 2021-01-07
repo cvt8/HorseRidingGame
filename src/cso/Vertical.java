@@ -60,15 +60,15 @@ public class Vertical extends Obstacle implements ElemManege {
 	public void setOrientation(Point p) {
 		try {
 			if (p.equals(localisation))
-				throw new MemepointException();
-			if (p.sontAdjacents(localisation))
-				throw new AdjacentException();
+				throw new MemepointException(p.toString());
+			if (!(p.sontAdjacents(localisation)))
+				throw new AdjacentException(p.toString() + localisation.toString());
 			orientation.clear();
 			orientation.add(p);
 			for (int i = localisation.getX() - 1; i < localisation.getX() + 2; i++) {
-				for (int j = localisation.getY() - 1; j < localisation.getY() + 2; i++) {
+				for (int j = localisation.getY() - 1; j < localisation.getY() + 2; j++) {
 					Point essai = new Point(i, j);
-					if (essai.sontAdjacents(p)) {
+					if (essai.distance(p) < (20.0 / 3.0) * 1.1) {
 						orientation.add(new Point(i, j));
 						orientation.add(new Point(essai.getSymetrique(localisation)));
 					}

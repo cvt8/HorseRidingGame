@@ -9,12 +9,16 @@ public class Cavalier {
 	private double tailleCheval;
 	private double vitesse;
 
+	/**
+	 * Un cheval reglementaire doit faire plus de 1,48 m.
+	 * 
+	 * @param nom
+	 */
 	public Cavalier(String nom) {
 		this.nom = nom;
 		this.tailleCheval = 1.48 + Math.random() * (1.8 - 1.48);
 		vitesse = 360;
-	} // l'IDE signale une erreur ici. Bizarre. Par ailleurs, un cheval reglementaire
-		// doit faire plus de 1,48 m.
+	}
 
 	/**
 	 * @param nom

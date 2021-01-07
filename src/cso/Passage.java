@@ -61,17 +61,17 @@ public class Passage {
 		double chance = Math.random();
 		if (chance < probaChute) {
 			abandon = true;
-			return "chute, ABANDON";
+			return obs.toString() + ": chute, ABANDON";
 		}
 		if (chance >= probaChute && chance < probaBarreTomb + probaChute) {
 			points += 4;
-			return "Barre tombee";
+			return obs.toString() + ": Barre tombee";
 		}
 		if (chance >= probaBarreTomb + probaChute && chance < probaBarreTomb + probaChute + probaBarreTouch) {
 			points += 2;
-			return "Barre touchee";
+			return obs.toString() + ": Barre touchee";
 		}
-		return "Obstacle saute sans difficulte";
+		return obs.toString() + ": Obstacle saute sans difficulte";
 	}
 
 	/**

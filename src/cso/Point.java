@@ -11,7 +11,6 @@ public class Point {
 
 	private int x;
 	private int y;
-	private String nom;
 
 	/**
 	 * @param x
@@ -21,9 +20,6 @@ public class Point {
 		super();
 		this.x = x;
 		this.y = y;
-		nom = "";
-		nom += x;
-		nom += y;
 	}
 
 	public Point(Point p) {
@@ -50,8 +46,10 @@ public class Point {
 	 * @return true si les deux points sont adjacents, false sinon
 	 */
 	public boolean sontAdjacents(Point p) {
-		if (Math.abs(p.x - x) == 1 || Math.abs(p.y - y) == 1)
+		if (Math.abs(p.x - x) == 1 || Math.abs(p.y - y) == 1) {
+			// System.out.println(p.toString());
 			return true;
+		}
 		return false;
 	}
 
@@ -77,7 +75,7 @@ public class Point {
 
 	@Override
 	public String toString() {
-		return nom;
+		return "Point [x=" + x + ", y=" + y + "]";
 	}
 
 }

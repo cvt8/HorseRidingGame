@@ -17,12 +17,12 @@ public class AdjacentException extends Exception {
 	/**
 	 * 
 	 */
-	public AdjacentException() {
-		super("Les deux points doivent etre adjacents");
-	}
-	
-	public AdjacentException(String message) {
-		super("Les deux points doivent etre adjacents" + ": " + message);
+
+	/**
+	 * @param les2pts
+	 */
+	public AdjacentException(String les2pts) {
+		super("Les deux points doivent etre adjacents" + ": " + les2pts);
 	}
 
 }

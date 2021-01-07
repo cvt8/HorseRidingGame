@@ -36,18 +36,22 @@ public class Parcours {
 	 * @throws AbordException
 	 */
 	public void addPoint(Point p) throws AdjacentException, AbordException {
-		try {
-			Point precedent = ordre.get(ordre.size() - 1);
-			if (!(precedent.sontAdjacents(p)))
-				throw new AdjacentException();
-			if (man.getElem(p) != null && !(man.getElem(p).getOrientation().contains(precedent)))
-				throw new AbordException();
+		if (ordre.size() != 0) {
+			try {
+				Point precedent = ordre.get(ordre.size() - 1);
+				if (!(precedent.sontAdjacents(p)))
+					throw new AdjacentException(p.toString() + precedent.toString());
+				if (man.getElem(p) != null && !(man.getElem(p).getOrientation().contains(precedent)))
+					throw new AbordException(p.toString() + "Point prec : " + precedent.toString());
+				ordre.add(p);
+			} catch (AdjacentException e) {
+				System.out.println(e.getMessage());
+			} catch (AbordException e) {
+				System.out.println(e.getMessage());
+			}
+		} else
 			ordre.add(p);
-		} catch (AdjacentException e) {
-			System.out.println(e.getMessage());
-		} catch (AbordException e) {
-			System.out.println(e.getMessage());
-		}
+		// System.out.println(Arrays.deepToString(ordre));
 	}
 
 	/**

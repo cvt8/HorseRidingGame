@@ -19,4 +19,9 @@ public class Plat extends Obstacle {
 		vitesseDiff = 1 / Math.pow(profondeur, 2);
 	}
 
+	@Override
+	protected void setOrientation(Point p) {
+		// TODO automated, add all points
+	}
+
 }
