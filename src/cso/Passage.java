@@ -38,96 +38,86 @@ public class Passage {
 		id = cpt;
 	}
 
-public void Saut(Obstacle random,Cavalier tou){
-	// taille minimun de cheval de 1.60  
-	switch(random.getId()) {
-	  case 1: // Le plus petit si on le passe pas eliminatoire
-		  if (tou.getTaille()== 1.60) {
-			  
-			    if ((Math.random()*100) > 30) // 70 pourcent de chance de sauter
-			    	{
-			    	score--;
-			    }
-			    else {
-			    	score-=2;
-			    	
-			    }
-			  }else if (tou.getTaille()==1.65) {
-				  if ((Math.random()*100) > 25) // 75 pourcent de chance de sauter
-				  {
-				    	score--;
-				    }
-				  else {
-					  score-=3;
-				  }
-			  }
-			  else {
-				  if ((Math.random()*100) > 20) {
-				    	score--;
-				    }else
-				    {
-				    	score-=4;
-				    }
-	    break;
-	  case 2: // Milieux de gammes 
-		  if (tou.getTaille()== 1.60) {
-			  
-			    if ((Math.random()*100) > 30) // 70 pourcent de chance de sauter
-			    	{
-			    	score--;
-			    }
-			    else {
-			    	score-=2;
-			    	
-			    }
-			  }else if (tou.getTaille()==1.65) {
-				  if ((Math.random()*100) > 25) // 75 pourcent de chance de sauter
-				  {
-				    	score--;
-				    }
-				  else {
-					  score-=3;
-				  }
-			  }
-			  else {
-				  if ((Math.random()*100) > 20) {
-				    	score--;
-				    }else
-				    {
-				    	score-=6;
-				    }
-	    break;
-	  default:// 3eme type obstacle les plus haut 
-		  
-		  if (tou.getTaille()== 1.60) {
-			  
-			    if ((Math.random()*100) > 30) // 60 pourcent de chance de sauter
-			    	{
-			    	score--;
-			    }
-			    else {
-			    	score-=5;
-			    	
-			    }
-			  }else if (tou.getTaille()==1.65) {
-				  if ((Math.random()*100) > 25) // 75 pourcent de chance de sauter
-				  {
-				    	score--;
-				    }
-				  else {
-					  score-=10;;
-				  }
-			  }
-			  else {
-				  if ((Math.random()*100) > 20) {
-				    	score--;
-				    }else
-				    {
-				    	score=0;
-				    }
-	}
-	
-	  
-	  
+	public void Saut(Obstacle random, Cavalier tou) {
+		// taille minimun de cheval de 1.60
+		switch (random.getId()) {
+		case 1: // Le plus petit si on le passe pas eliminatoire
+			if (tou.getTailleCheval() == 1.60) {
+
+				if ((Math.random() * 100) > 30) // 70 pourcent de chance de sauter
+				{
+					score--;
+				} else {
+					score -= 2;
+
+				}
+			} else if (tou.getTailleCheval() == 1.65) {
+				if ((Math.random() * 100) > 25) // 75 pourcent de chance de sauter
+				{
+					score--;
+				} else {
+					score -= 3;
+				}
+			} else {
+				if ((Math.random() * 100) > 20) {
+					score--;
+				} else {
+					score -= 4;
+				}
+			}
+			break;
+		case 2: // Milieux de gammes
+			if (tou.getTailleCheval() == 1.60) {
+
+				if ((Math.random() * 100) > 30) // 70 pourcent de chance de sauter
+				{
+					score--;
+				} else {
+					score -= 2;
+
+				}
+			} else if (tou.getTailleCheval() == 1.65) {
+				if ((Math.random() * 100) > 25) // 75 pourcent de chance de sauter
+				{
+					score--;
+				} else {
+					score -= 3;
+				}
+			} else {
+				if ((Math.random() * 100) > 20) {
+					score--;
+				} else {
+					score -= 6;
+				}
+			}
+			break;
+		default:// 3eme type obstacle les plus haut
+
+			if (tou.getTailleCheval() == 1.60) {
+
+				if ((Math.random() * 100) > 30) // 60 pourcent de chance de sauter
+				{
+					score--;
+				} else {
+					score -= 5;
+
+				}
+			} else if (tou.getTailleCheval() == 1.65) {
+				if ((Math.random() * 100) > 25) // 75 pourcent de chance de sauter
+				{
+					score--;
+				} else {
+					score -= 10;
+					;
+				}
+			} else {
+				if ((Math.random() * 100) > 20) {
+					score--;
+				} else {
+					score = 0;
+				}
+			}
+		}
+
 	}
 }
