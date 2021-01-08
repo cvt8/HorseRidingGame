@@ -54,7 +54,7 @@ public class Vertical extends Obstacle implements ElemManege {
 	}
 
 	/**
-	 * @param orientation the orientation to set
+	 * @param p le Ppoint pour entrer droit et au milieu
 	 */
 	@Override
 	public void setOrientation(Point p) {
